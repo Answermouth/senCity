@@ -21,7 +21,7 @@ public abstract class ListTraces extends AbstractTraces{
 
 		/*
 		if (file.exists())
-			throw new IOException("le fichier existe déjà");
+			throw new IOException("le fichier existe deja");
 		*/
 			
 		

@@ -2,57 +2,114 @@ package senCity;
 
 import java.util.ArrayList;
 
-public class Node<T, E> {
+public class Node {
 	
-	private T data;
-	private Node<T, E> child;
-	private Node<T, E> brother;
-	private ArrayList<E> elmts;
+	private char data;
+	private Node child;
+	private Node brother;
+	private ArrayList<Trace> elmts;
 	
-	public Node(T data) {
+	public Node(char data) {
 		this.data = data;
 		this.child = null;
 		this.brother = null;
-		elmts = new ArrayList<E>();
+		elmts = new ArrayList<Trace>();
 	}
 	
 	public Node() {
-		this.data = null;
+		this.data = '\0';
 		this.child = null;
 		this.brother = null;
-		elmts = new ArrayList<E>();
+		elmts = new ArrayList<Trace>();
 	}
 
-	public T getData() {
+	public char getData() {
 		return data;
 	}
 	
-	public void setData(T data) {
+	public void setData(char data) {
 		this.data = data;
 	}
 	
-	public Node<T, E> getChild() {
+	public Node getChild() {
 		return child;
 	}
 	
-	public void setChild(Node<T, E> child) {
+	public void setChild(Node child) {
 		this.child = child; 
 	}
 	
-	public Node<T, E> getBrother() {
+	public Node getBrother() {
 		return brother;
 	}
 	
-	public void setBrother(Node<T, E> brother) {
+	public void setBrother(Node brother) {
 		this.brother = brother; 
 	}
 	
-	public ArrayList<E> getElements() {
+	public ArrayList<Trace> getElements() {
 		return elmts;
 	}
 	
-	public void addElement(E elmt) {
+	public void addElement(Trace elmt) {
 		elmts.add(elmt);
 	}
-
+	
+	
+	public void ajouter(String ssid, int i, Trace trace) {
+		if (this.data == '\0')
+			this.data = ssid.charAt(i);
+		
+		if (this.data == ssid.charAt(i)) {
+			if (i == ssid.length()-1)
+				this.addElement(trace);
+			else if (this.child != null)
+				this.child.ajouter(ssid, i+1, trace);
+			else {
+				this.child = new Node();
+				this.child.ajouter(ssid, i+1, trace);
+			}
+			
+		} else {
+			if (this.brother != null)
+				this.brother.ajouter(ssid, i, trace);
+			else {
+				this.brother = new Node();
+				this.brother.ajouter(ssid, i, trace);
+			}
+		}
+	}
+	
+	
+	public ArrayList<Trace> find(String ssid, int i) {
+		if (ssid.charAt(i) == this.data)
+			if (i == ssid.length()-1)
+				return elmts;
+			else if (this.child != null)
+				return this.child.find(ssid, i+1);
+			else 
+				return null;
+		
+		else if (this.brother != null)
+			return this.brother.find(ssid, i);
+		
+		return null;
+	}
+	
+	
+	public String toString() {
+		String s = "";
+		
+		for (Trace t: this.elmts) 
+			s += t.toString() + "\n";
+		
+		if (this.brother != null) 
+			s += this.brother.toString();
+			
+		if (this.child != null) 
+			s += this.child.toString();
+		
+		
+		return s;
+	}
 }

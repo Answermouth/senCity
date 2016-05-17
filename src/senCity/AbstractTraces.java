@@ -5,11 +5,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+
 
 
 public abstract class AbstractTraces {
 	
 	Object elmts;
+	
+	BufferedWriter writer;
 	
 	public abstract void ajouter(Trace trace);
 	
@@ -113,7 +117,7 @@ public abstract class AbstractTraces {
 				if (read > 100 && wrote/read < pourcentage/100.0) {
 					readerWifi.close();
 					readerGps.close();
-					throw new IOException("Trop de donnée wifi ont été perdues");
+					throw new IOException("Trop de donnï¿½e wifi ont ï¿½tï¿½ perdues");
 				}
 			}
 			readerWifi.close();

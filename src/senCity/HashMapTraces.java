@@ -36,21 +36,17 @@ public class HashMapTraces extends MapTraces{
 
 		/*
 		if (file.exists())
-			throw new IOException("le fichier existe déjà");
+			throw new IOException("le fichier existe deja");
 		*/
 			
 		
 		try {
 			writer = new BufferedWriter(new FileWriter(file));
-			
-			println("hello");
-			
+						
 			for (String i: elmts.keySet()) {
 				writer.write(elmts.get(i).toString());
 				writer.newLine();
 			}
-			println("hello");
-			
 			writer.flush();
 			writer.close();
 			
