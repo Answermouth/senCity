@@ -117,7 +117,7 @@ public abstract class AbstractTraces {
 				if (read > 100 && wrote/read < pourcentage/100.0) {
 					readerWifi.close();
 					readerGps.close();
-					throw new IOException("Trop de donn�e wifi ont �t� perdues");
+					throw new IOException("Trop de donnee wifi ont ete perdues");
 				}
 			}
 			readerWifi.close();

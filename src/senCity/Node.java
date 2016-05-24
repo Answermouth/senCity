@@ -81,10 +81,10 @@ public class Node {
 	}
 	
 	
-	public ArrayList<Trace> find(String ssid, int i) {
+	public Node find(String ssid, int i) {
 		if (ssid.charAt(i) == this.data)
 			if (i == ssid.length()-1)
-				return elmts;
+				return this;
 			else if (this.child != null)
 				return this.child.find(ssid, i+1);
 			else 

@@ -2,7 +2,7 @@ package senCity;
 
 import java.util.LinkedList;
 
-public class LinkedListTraces extends ListTraces{
+public class LinkedListTraces extends Traces{
 	
 	public LinkedListTraces() {
 		elmts = new LinkedList<>();

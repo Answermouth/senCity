@@ -2,7 +2,7 @@ package senCity;
 
 import java.util.ArrayList;
 
-public class ArrayListTraces extends ListTraces{
+public class ArrayListTraces extends Traces{
 		
 	public ArrayListTraces() {
 		//elmts = new ArrayList<>(13443);

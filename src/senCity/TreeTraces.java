@@ -20,6 +20,14 @@ public class TreeTraces extends AbstractTraces{
 		elmts.ajouter(ssid, 0, trace);
 	}
 	
+	public Node getNodes() {
+		return elmts;
+	}
+	
+	public void setNodes(Node root) {
+		elmts = root;
+	}
+	
 	public TreeTraces extract(String ssid) {
 		long a = System.currentTimeMillis();
 
@@ -28,7 +36,7 @@ public class TreeTraces extends AbstractTraces{
 
 		ArrayList<Trace> tracesSelect = new ArrayList<Trace>();
 		
-		tracesSelect = this.elmts.find(ssid, 0); 
+		tracesSelect = this.elmts.find(ssid, 0).getElements(); 
 		
 		for (Trace t: tracesSelect) {
 			select.ajouter(t);
@@ -36,6 +44,17 @@ public class TreeTraces extends AbstractTraces{
 		
 		a = System.currentTimeMillis() - a;
 		println("duree extract : " + a + "ms");
+		
+		return select;
+	}
+	
+	public TreeTraces extractAll(String prefixe) {
+		TreeTraces select = new TreeTraces(); 
+		Node node = new Node();
+		
+		node =  this.elmts.find(prefixe, 0);
+		
+		select.setNodes(node);
 		
 		return select;
 	}
@@ -83,12 +102,11 @@ public class TreeTraces extends AbstractTraces{
 			throw e;
 		}
 	}
-
-
 	
 	public String toString() {
 		return elmts.toString();
 	}
+	
 	
 	public static void main(String[] args) {
 		TreeTraces traces = new TreeTraces();
