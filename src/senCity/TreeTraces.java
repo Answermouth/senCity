@@ -104,7 +104,10 @@ public class TreeTraces extends AbstractTraces{
 	}
 	
 	public String toString() {
-		return elmts.toString();
+		if (elmts != null)
+			return elmts.toString();
+		else
+			return "";
 	}
 	
 	
