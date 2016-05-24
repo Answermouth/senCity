@@ -28,7 +28,7 @@ public class QuizzCar {
 		
 		
 		while (!s.equals("Q")) {
-			System.out.println("Veuillez entrer un SSID Ã  extraire (Q pour quitter)");
+			System.out.println("Veuillez entrer un SSID a  extraire (Q pour quitter)");
 			s = in.nextLine();
 			System.out.print(traces.extract(s).toString());
 		}
