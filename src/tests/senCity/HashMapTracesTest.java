@@ -47,9 +47,9 @@ public class HashMapTracesTest {
 		TT.ajouter(t2);
 		
 		try {
-			TT.save("src/main/senCity/tmp");
+			TT.save("src/tests/senCity/tmp.txt");
 			
-			tmp = new File("src/main/senCity/tmp");
+			tmp = new File("src/tests/senCity/tmp.txt");
 			reader = new BufferedReader(new FileReader(tmp));
 			
 			String result = reader.readLine();
