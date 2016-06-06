@@ -4,9 +4,17 @@ http://plantuml.com/
 @startuml
 Trace *- GPS
 Traces *- Trace
+MapTraces *- Trace
+TreeTraces *- Trace
 "Iterable<Trace>" <|-- Traces
+AbstractTraces <|-- Traces
+"Iterable<MapEntry<String,Trace>>" <|-- MapTraces
+AbstractTraces <|-- MapTraces
+MapTraces <|-- HashMapTraces
 Traces <|-- LinkedListTraces
 Traces <|-- ArrayListTraces
+AbstractTraces <|-- TreeTraces
+TreeTraces *- Node
 
 
 class GPS {
@@ -32,6 +40,33 @@ class Trace {
 +String toString()
 }
 
+abstract class AbstractTraces {
+#Object elmts
+#BufferedWriter writer
+
++{abstract} void ajouter(Trace trace)
++{abstract} AbstractTraces extract(String ssid)
++void load(String nomFichierWifi, String nomFichierGps, int pourcentage)
+}
+
+abstract class MapTraces {
+#Map<String, Trace> elmts
+
++void ajouter(Trace trace)
++Trace getTrace(String ssid)
++Map<String, Trace> getMap()
++int taille()
++String toString()
++Iterator<Map.Entry<String, Trace>> iterator()
+}
+
+class HashMapTraces {
++HashMapTraces()
++HashMapTraces extract(String ssid)
++void save()
++{static} void main(String[] args)
+}
+
 abstract class Traces {
 #Collection<Trace> elmts
 +void ajouter(Trace trace)
@@ -43,16 +78,58 @@ abstract class Traces {
 
 class LinkedListTraces {
 +LinkedListTraces()
-+void initialiser()
++LinkedListTraces extract(String ssid)
++{static} void main(String[] args)
 }
 
 class ArrayListTraces {
 +ArrayListTraces()
-+void initialiser()
++ArrayListTraces extract(String ssid)
++{static} void main(String[] args)
 }
 
 interface "Iterable<Trace>" {
 +Iterator<Trace> iterator()
+}
+
+interface "Iterable<MapEntry<String,Trace>>" {
++Iterator<Map.Entry<String,Trace>> iterator()
+}
+
+class TreeTraces {
+-Node elmts
+
++TreeTraces()
++void ajouter(Trace trace)
++Node getNodes()
++void setNodes()
++TreeTraces extract(String ssid)
++TreeTraces extractAll(String prefixe)
+-void saveRecurs(Node node)
++void save(String nomFichier)
++String toString()
++{static} void main(String[] args)
+}
+
+class Node {
+-char data
+-Node child
+-Node brother
+-ArrayList<Trace> elmts
+
++Node(char data)
++Node()
++char getData()
++void setData(char data)
++Node getChild()
++void setChild()
++Node getBrother()
++void setBrother()
++ArrayList<Trace> getElements()
++void addEllement(Trace elmt)
++void ajouter(String ssid, int i, Trace trace)
++Node find(String ssid, int i)
++String toString()
 }
 
 @enduml

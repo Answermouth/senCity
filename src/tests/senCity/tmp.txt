@@ -1,2 +1,2 @@
-timestamp	said	20  20.0  20.0
 timestamp	ssid	20  20.0  20.0
+timestamp	said	20  20.0  20.0

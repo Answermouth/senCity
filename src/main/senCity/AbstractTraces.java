@@ -10,9 +10,9 @@ import java.io.BufferedWriter;
 
 public abstract class AbstractTraces {
 	
-	Object elmts;
+	protected Object elmts;
 	
-	BufferedWriter writer;
+	protected BufferedWriter writer;
 	
 	public abstract void ajouter(Trace trace);
 	

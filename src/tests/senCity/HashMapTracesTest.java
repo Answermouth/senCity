@@ -53,11 +53,11 @@ public class HashMapTracesTest {
 			reader = new BufferedReader(new FileReader(tmp));
 			
 			String result = reader.readLine();
-			String expected = t2.toString();
+			String expected = t1.toString();
 			assertEquals(expected, result);
 			
 			result = reader.readLine();
-			expected = t1.toString();
+			expected = t2.toString();
 			assertEquals(expected, result);
 			
 		} catch (Exception e){
