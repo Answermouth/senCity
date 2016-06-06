@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HashMapTraces extends MapTraces{
-		
+	
 	public HashMapTraces() {
 		elmts = new HashMap<String, Trace>(1000);
 	}
@@ -28,7 +28,7 @@ public class HashMapTraces extends MapTraces{
 		
 		return select;
 	}
-	
+		
 	public void save(String nomFichier) throws IOException {
 		BufferedWriter writer;
 		
@@ -59,9 +59,9 @@ public class HashMapTraces extends MapTraces{
 	public static void main(String[] args) {
 		HashMapTraces traces = new HashMapTraces();
 		try {
-			traces.load("src/senCity/capture_wifi_2.csv", "src/senCity/capture_gps_2.csv", 10);
+			traces.load("src/main/senCity/capture_wifi_2.csv", "src/main/senCity/capture_gps_2.csv", 10);
 			//System.out.println(Runtime.getRuntime().freeMemory());
-			traces.save("src/senCity/output.txt");
+			traces.save("src/main/senCity/output.txt");
 		} catch(Exception e) {
 			System.out.println(e);
 		}

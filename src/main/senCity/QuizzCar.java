@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 import java.util.Scanner;
 import java.lang.Math;
@@ -83,9 +83,9 @@ public class QuizzCar {
 		
 		TreeTraces traces = new TreeTraces();
 		try {
-			traces.load("src/senCity/capture_wifi_2.csv", "src/senCity/capture_gps_2.csv", 76);
+			traces.load("src/main/senCity/capture_wifi_2.csv", "src/main/senCity/capture_gps_2.csv", 76);
 			//traces.load(inputWifi, inputGps, tolerance);
-			traces.save("src/senCity/output.txt");
+			traces.save("src/main/senCity/output.txt");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -99,7 +99,7 @@ public class QuizzCar {
 				//System.out.print(traces.extractAll(s).toString());
 				getUniques(traces.extractAll(s));
 				try {
-					traces.extractAll(s).save("src/senCity/output2.txt");
+					traces.extractAll(s).save("src/main/senCity/output2.txt");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

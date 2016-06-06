@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 import java.util.ArrayList;
 

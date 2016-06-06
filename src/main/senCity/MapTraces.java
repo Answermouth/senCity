@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -14,12 +14,20 @@ public abstract class MapTraces extends AbstractTraces implements Iterable<Map.E
 		elmts.put(trace.getSsid(), trace);
 	}
 	
+	public Trace getTrace(String ssid) {
+		return elmts.get(ssid);
+	}
+	
+	public Map<String, Trace> getMap() {
+		return elmts;
+	}
+	
 	public int taille() {
 		return elmts.size();
 	}
 	
 	public String toString() {
-		String txt = "Timestamp, SSID, Signal \n";
+		String txt = "";
 		for (Map.Entry<String, Trace> i : this) {
 			txt += i.getValue().toString() + "\n";
 		}

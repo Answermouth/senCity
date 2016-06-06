@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 import java.io.File;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class SenCity {
 	
 	public static void main(String[] args) {
-		File file = new File("E:/workspace/senCity/src/senCity/capture_wifi.csv");
+		File file = new File("/src/main/senCity/capture_wifi.csv");
 		BufferedReader reader;
 		
 		try {

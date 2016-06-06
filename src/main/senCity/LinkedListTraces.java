@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 import java.util.LinkedList;
 
@@ -26,9 +26,9 @@ public class LinkedListTraces extends Traces{
 	public static void main(String[] args) {
 		LinkedListTraces traces = new LinkedListTraces();
 		try {
-			traces.load("src/senCity/capture_wifi_2.csv", "src/senCity/capture_gps_2.csv", 76);
+			traces.load("src/main/senCity/capture_wifi_2.csv", "src/main/senCity/capture_gps_2.csv", 76);
 			//System.out.println(Runtime.getRuntime().freeMemory());
-			traces.save("src/senCity/output.txt");
+			traces.save("src/main/senCity/output.txt");
 		} catch(Exception e) {
 			System.out.println(e);
 		}

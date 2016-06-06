@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 public class GPS {
 	private double latitude, longitude;

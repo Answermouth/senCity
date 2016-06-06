@@ -1,4 +1,4 @@
-package senCity;
+package main.senCity;
 
 public class Trace {
 	private String ssid, ts;
