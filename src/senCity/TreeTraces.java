@@ -80,26 +80,28 @@ public class TreeTraces extends AbstractTraces{
 	}
 
 	
-	public void save(String nomFichier) throws IOException {		
-		File file = new File(nomFichier);
-
-		/*
-		if (file.exists())
-			throw new IOException("le fichier existe deja");
-		*/
-			
-		
-		try {
-			writer = new BufferedWriter(new FileWriter(file));	
+	public void save(String nomFichier) throws IOException {
+		if (this.getNodes() != null) {
+			File file = new File(nomFichier);
+	
+			/*
+			if (file.exists())
+				throw new IOException("le fichier existe deja");
+			*/
 				
-			saveRecurs(elmts);
 			
-			writer.flush();
-			writer.close();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw e;
+			try {
+				writer = new BufferedWriter(new FileWriter(file));	
+					
+				saveRecurs(elmts);
+				
+				writer.flush();
+				writer.close();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+				throw e;
+			}
 		}
 	}
 	
